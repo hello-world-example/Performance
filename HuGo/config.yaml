@@ -15,15 +15,15 @@ markup:
   tableOfContents:
     startLevel: 1
 
-menu:
-  # before: []
-  after:
-    - name: "Github"
-      url: "https://github.com/alex-shpak/hugo-book"
-      weight: 10
-    - name: "Hugo Themes"
-      url: "https://themes.gohugo.io/hugo-book/"
-      weight: 20
+# menu:
+#   # before: []
+#   after:
+#     - name: "Github"
+#       url: "https://github.com/alex-shpak/hugo-book"
+#       weight: 10
+#     - name: "Hugo Themes"
+#       url: "https://themes.gohugo.io/hugo-book/"
+#       weight: 20
 
 params:
   # (Optional, default true) Controls table of contents visibility on right side of pages.
