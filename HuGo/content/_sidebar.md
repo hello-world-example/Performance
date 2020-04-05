@@ -2,10 +2,21 @@
 headless: true
 ---
 
-- [简介]({{< relref "/" >}})
+- [**Example Site**]({{< relref "/docs/example" >}})
+- [Table of Contents]({{< relref "/docs/example/table-of-contents" >}})
+  - [With ToC]({{< relref "/docs/example/table-of-contents/with-toc" >}})
+  - [Without ToC]({{< relref "/docs/example/table-of-contents/without-toc" >}})
+- [Collapsed]({{< relref "/docs/example/collapsed" >}})
+  - [3rd]({{< relref "/docs/example/collapsed/3rd-level" >}})
+    - [4th]({{< relref "/docs/example/collapsed/3rd-level/4th-level" >}})
+<br />
 
-- **示例**
-  - [默认带目录]({{< relref "/docs/with-toc.md" >}})
-  - [设置不带目录]({{< relref "/docs/without-toc.md" >}})
-  - [特有功能]({{< relref "/docs/shortcodes.md" >}})  
-
+- **Shortcodes**
+- [Buttons]({{< relref "/docs/shortcodes/buttons" >}})
+- [Columns]({{< relref "/docs/shortcodes/columns" >}})
+- [Expand]({{< relref "/docs/shortcodes/expand" >}})
+- [Hints]({{< relref "/docs/shortcodes/hints" >}})
+- [Katex]({{< relref "/docs/shortcodes/katex" >}})
+- [Mermaid]({{< relref "/docs/shortcodes/mermaid" >}})
+- [Tabs]({{< relref "/docs/shortcodes/tabs" >}})
+<br />
