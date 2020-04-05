@@ -4,18 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Docs | Template-Hugo</title>
+<meta name="description" content="Docs"><meta property="og:title" content="Docs" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://hello-world-example.github.io/Performance/docs/" />
+
+<title>Docs | Performance</title>
+<link rel="icon" href="/Performance/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/Template-Hugo/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
+<link rel="stylesheet" href="/Performance/book.min.5ffea21f70a71b9e6059006c33cc74cf184e208cb9897c6b24840c9f4e0e385e.css" integrity="sha256-X/6iH3CnG55gWQBsM8x0zxhOIIy5iXxrJIQMn04OOF4=">
 
 
-
-
-<link rel="icon" href="/Template-Hugo/favicon.png" type="image/x-icon">
-
-
-<link rel="alternate" type="application/rss+xml" href="https://hello-world-example.github.io/Template-Hugo/docs/index.xml" title="Template-Hugo" />
+<link rel="alternate" type="application/rss+xml" href="https://hello-world-example.github.io/Performance/docs/index.xml" title="Performance" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -25,13 +26,14 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
 <h2 class="book-brand">
-  <a href="https://hello-world-example.github.io/Template-Hugo/">Template-Hugo</a>
+  <a href="/Performance"><span>Performance</span>
+  </a>
 </h2>
 
 
@@ -39,30 +41,19 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2fTemplate-Hugo\2f docs\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
+  <ul>
+<li>
+<p><a href="/Performance/">简介</a></p>
+</li>
+<li>
+<p><strong>示例</strong></p>
 <ul>
-<li><p><a href="/Template-Hugo/">简介</a></p></li>
-
-<li><p><strong>示例</strong></p>
-
-<ul>
-<li><a href="/Template-Hugo/docs/with-toc/">默认带目录</a></li>
-<li><a href="/Template-Hugo/docs/without-toc/">设置不带目录</a></li>
-<li><a href="/Template-Hugo/docs/shortcodes/">特有功能</a><br /></li>
-</ul></li>
+<li><a href="/Performance/docs/with-toc/">默认带目录</a></li>
+<li><a href="/Performance/docs/without-toc/">设置不带目录</a></li>
+<li><a href="/Performance/docs/shortcodes/">特有功能</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -71,52 +62,87 @@ https://github.com/alex-shpak/hugo-book
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/Template-Hugo/svg/menu.svg" alt="Menu" />
+    <img src="/Performance/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Docs</strong>
-</header>
 
-      
-<article class="markdown"></article>
-
-      
-<div class="book-footer justify-end">
-  
-  
-  <div>
-    
-  </div>
-  
+  <label for="toc-control">
+    <img src="/Performance/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
 </div>
 
 
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown"></article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+  
+ 
+      </footer>
       
     </div>
 
     
+    <aside class="book-toc">
+      
   
 
-
-
+ 
+    </aside>
+    
   </main>
-  
-  
+
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
