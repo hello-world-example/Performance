@@ -3,88 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/example/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/example/table-of-contents/with-toc/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/example/table-of-contents/without-toc/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/example/table-of-contents/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/example/collapsed/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://hello-world-example.github.io/Performance/_sidebar/</loc>
     <lastmod>2020-04-06T00:19:19+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/example/collapsed/3rd-level/4th-level/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
+    <loc>https://hello-world-example.github.io/Performance/docs/CPU/</loc>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/example/collapsed/3rd-level/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
+    <loc>https://hello-world-example.github.io/Performance/docs/Disk/</loc>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/example/hidden/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
+    <loc>https://hello-world-example.github.io/Performance/docs/Hardware-Info/</loc>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/shortcodes/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
+    <loc>https://hello-world-example.github.io/Performance/docs/Mem/</loc>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/shortcodes/buttons/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/shortcodes/columns/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/shortcodes/expand/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/shortcodes/hints/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/shortcodes/katex/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/shortcodes/mermaid/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Performance/docs/shortcodes/tabs/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
+    <loc>https://hello-world-example.github.io/Performance/docs/Net/</loc>
   </url>
   
   <url>
@@ -93,7 +33,6 @@
   
   <url>
     <loc>https://hello-world-example.github.io/Performance/docs/</loc>
-    <lastmod>2020-04-06T00:19:19+08:00</lastmod>
   </url>
   
   <url>

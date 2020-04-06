@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="硬件信息 Disk 查看磁盘编号 $ fdisk -l ... 磁盘 /dev/sda：21.5 GB, 21474836480 字节，41943040 个扇区 Units = 扇区 of 1 * 512 = 512 bytes 扇区大小(逻辑/物理)：512 字节 / 512 字节 I/O 大小(最小/最佳)：512 字节 / 512 字节 查看是否 SSD # 查看是否 SSD $ lsblk -h ... -h, --help 显示此帮助并退出 -V, --version 输出版本信息并退出 可用列(用于 --output)： NAME 设备名 KNAME internal kernel device name MAJ:MIN 主:次 设备号 FSTYPE 文件系统类型 ... # ROTA 0:SSD; 1:HDD $ lsblk -d -p -o NAME,ROTA,TYPE NAME ROTA TYPE /dev/sda 1 disk /dev/sr0 1 rom /dev/loop0 1 loop /dev/loop1 1 loop ."><meta property="og:title" content="" />
+<meta property="og:description" content="硬件信息 Disk 查看磁盘编号 $ fdisk -l ... 磁盘 /dev/sda：21.5 GB, 21474836480 字节，41943040 个扇区 Units = 扇区 of 1 * 512 = 512 bytes 扇区大小(逻辑/物理)：512 字节 / 512 字节 I/O 大小(最小/最佳)：512 字节 / 512 字节 查看是否 SSD # 查看是否 SSD $ lsblk -h ... -h, --help 显示此帮助并退出 -V, --version 输出版本信息并退出 可用列(用于 --output)： NAME 设备名 KNAME internal kernel device name MAJ:MIN 主:次 设备号 FSTYPE 文件系统类型 ... # ROTA 0:SSD; 1:HDD $ lsblk -d -p -o NAME,ROTA,TYPE NAME ROTA TYPE /dev/sda 1 disk /dev/sr0 1 rom /dev/loop0 1 loop /dev/loop1 1 loop ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Performance/docs/Hardware-Info/" />
+
+<title>Hardware Info | Performance</title>
+<link rel="icon" href="/Performance/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Performance/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Performance"><span>Performance</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+<li>
+<p>
+  <a href="/Performance/docs/Hardware-Info/"class=active>硬件信息</a></p>
+</li>
+<li>
+<p><strong>Disk</strong></p>
+<ul>
+<li>
+  <a href="/Performance/docs/Disk/">_</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Net</strong></p>
+<ul>
+<li>wrk 压测工具</li>
+</ul>
+</li>
+<li>
+<p><strong>CPU</strong></p>
+</li>
+<li>
+<p><strong>Mem</strong></p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Performance/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Hardware Info</strong>
+
+  <label for="toc-control">
+    <img src="/Performance/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#硬件信息">硬件信息</a>
+      <ul>
+        <li><a href="#disk">Disk</a>
+          <ul>
+            <li><a href="#查看磁盘编号">查看磁盘编号</a></li>
+            <li><a href="#查看是否-ssd">查看是否 SSD</a></li>
+            <li><a href="#磁盘硬件型号">磁盘硬件型号</a></li>
+          </ul>
+        </li>
+        <li><a href="#net">Net</a>
+          <ul>
+            <li><a href="#网卡硬件信息">网卡硬件信息</a></li>
+            <li><a href="#所有网络接口">所有网络接口</a></li>
+            <li><a href="#网络接口的详细信息">网络接口的详细信息</a></li>
+          </ul>
+        </li>
+        <li><a href="#cpu">CPU</a></li>
+        <li><a href="#mem">Mem</a>
+          <ul>
+            <li><a href="#内存大小">内存大小</a></li>
+            <li><a href="#内存详细信息">内存详细信息</a></li>
+            <li><a href="#内存硬件信息">内存硬件信息</a></li>
+          </ul>
+        </li>
+        <li><a href="#小结">小结</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="硬件信息">硬件信息</h1>
+<h2 id="disk">Disk</h2>
+<h3 id="查看磁盘编号">查看磁盘编号</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ fdisk -l 
+...
+磁盘 /dev/sda：21.5 GB, <span style="color:#ae81ff">21474836480</span> 字节，41943040 个扇区
+Units <span style="color:#f92672">=</span> 扇区 of <span style="color:#ae81ff">1</span> * 512 <span style="color:#f92672">=</span> <span style="color:#ae81ff">512</span> bytes
+扇区大小<span style="color:#f92672">(</span>逻辑/物理<span style="color:#f92672">)</span>：512 字节 / <span style="color:#ae81ff">512</span> 字节
+I/O 大小<span style="color:#f92672">(</span>最小/最佳<span style="color:#f92672">)</span>：512 字节 / <span style="color:#ae81ff">512</span> 字节
+</code></pre></div><h3 id="查看是否-ssd">查看是否 SSD</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查看是否 SSD</span>
+$ lsblk -h
+...
+ -h, --help     显示此帮助并退出
+ -V, --version  输出版本信息并退出
+
+可用列<span style="color:#f92672">(</span>用于 --output<span style="color:#f92672">)</span>：
+        NAME  设备名
+       KNAME  internal kernel device name
+     MAJ:MIN  主:次 设备号
+      FSTYPE  文件系统类型
+         ...
+ 
+<span style="color:#75715e"># ROTA 0:SSD; 1:HDD</span>
+$ lsblk -d -p -o NAME,ROTA,TYPE
+NAME       ROTA TYPE
+/dev/sda      <span style="color:#ae81ff">1</span> disk
+/dev/sr0      <span style="color:#ae81ff">1</span> rom
+/dev/loop0    <span style="color:#ae81ff">1</span> loop 
+/dev/loop1    <span style="color:#ae81ff">1</span> loop 
+...
+
+<span style="color:#75715e"># 或者</span> 
+$  cat /sys/block/sda/queue/rotational
+<span style="color:#ae81ff">1</span> <span style="color:#75715e"># 0:SSD; 1:HDD</span>
+
+<span style="color:#75715e"># 或者</span>
+$ lsscsi
+<span style="color:#f92672">[</span>1:0:0:0<span style="color:#f92672">]</span>    cd/dvd  NECVMWar VMware IDE CDR10 1.00  /dev/sr0 
+<span style="color:#f92672">[</span>2:0:0:0<span style="color:#f92672">]</span>    disk    VMware,  VMware Virtual S 1.0   /dev/sda 
+</code></pre></div><h3 id="磁盘硬件型号">磁盘硬件型号</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ smartctl --all /dev/sda 
+<span style="color:#f92672">===</span> START OF INFORMATION SECTION <span style="color:#f92672">===</span>
+Vendor:               VMware,
+Product:              VMware Virtual S
+Revision:             1.0
+User Capacity:        21,474,836,480 bytes <span style="color:#f92672">[</span>21.4 GB<span style="color:#f92672">]</span>
+Logical block size:   <span style="color:#ae81ff">512</span> bytes
+Rotation Rate:        Solid State Device
+Device type:          disk
+...
+
+<span style="color:#75715e"># 获取通过 BIOS 主板查看</span>
+$  dmidecode -t system
+...
+Handle 0x0001, DMI type 1, <span style="color:#ae81ff">27</span> bytes
+System Information
+        Manufacturer: VMware, Inc.
+        Product Name: VMware Virtual Platform
+...
+</code></pre></div><h2 id="net">Net</h2>
+<h3 id="网卡硬件信息">网卡硬件信息</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ lspci | grep -i <span style="color:#e6db74">&#39;eth&#39;</span>
+02:01.0 Ethernet controller: Intel Corporation 82545EM Gigabit Ethernet Controller <span style="color:#f92672">(</span>Copper<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>rev 01<span style="color:#f92672">)</span>
+</code></pre></div><h3 id="所有网络接口">所有网络接口</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ifconfig -a
+ens33: flags<span style="color:#f92672">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span style="color:#ae81ff">1500</span>
+        inet 192.168.83.130  netmask 255.255.255.0  broadcast 192.168.83.255
+        inet6 fe80::97e8:a33:3048:8c3b  prefixlen <span style="color:#ae81ff">64</span>  scopeid 0x20&lt;link&gt;
+        ether 00:0c:29:77:97:89  txqueuelen <span style="color:#ae81ff">1000</span>  <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>
+        RX packets <span style="color:#ae81ff">183567</span>  bytes <span style="color:#ae81ff">255953157</span> <span style="color:#f92672">(</span>244.0 MiB<span style="color:#f92672">)</span>
+        RX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span>  overruns <span style="color:#ae81ff">0</span>  frame <span style="color:#ae81ff">0</span>
+        TX packets <span style="color:#ae81ff">88436</span>  bytes <span style="color:#ae81ff">7424860</span> <span style="color:#f92672">(</span>7.0 MiB<span style="color:#f92672">)</span>
+        TX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span> overruns <span style="color:#ae81ff">0</span>  carrier <span style="color:#ae81ff">0</span>  collisions <span style="color:#ae81ff">0</span>
+
+lo: flags<span style="color:#f92672">=</span>73&lt;UP,LOOPBACK,RUNNING&gt;  mtu <span style="color:#ae81ff">65536</span>
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen <span style="color:#ae81ff">128</span>  scopeid 0x10&lt;host&gt;
+        loop  txqueuelen <span style="color:#ae81ff">1000</span>  <span style="color:#f92672">(</span>Local Loopback<span style="color:#f92672">)</span>
+        ...
+
+# 
+$ ip addr
+# 
+$ ip link show
+</code></pre></div><h3 id="网络接口的详细信息">网络接口的详细信息</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ethtool ens33
+
+Supported ports: <span style="color:#f92672">[</span> TP <span style="color:#f92672">]</span>
+Supported link modes:   10baseT/Half 10baseT/Full 
+        100baseT/Half 100baseT/Full 
+        1000baseT/Full                              <span style="color:#75715e"># 支持千兆半双工，全双工模式</span>
+Supported pause frame use: No
+Supports auto-negotiation: Yes
+Supported FEC modes: Not reported
+Advertised link modes:  10baseT/Half 10baseT/Full 
+        100baseT/Half 100baseT/Full 
+        1000baseT/Full
+Advertised pause frame use: No
+Advertised auto-negotiation: Yes                     <span style="color:#75715e"># 默认使用自适应模式</span>
+Advertised FEC modes: Not reported
+Speed: 1000Mb/s                                      #
+Duplex: Full                                         # 
+Port: Twisted Pair
+PHYAD: <span style="color:#ae81ff">0</span>
+Transceiver: internal
+Auto-negotiation: on
+MDI-X: off <span style="color:#f92672">(</span>auto<span style="color:#f92672">)</span>
+Supports Wake-on: d
+Wake-on: d
+Current message level: 0x00000007 <span style="color:#f92672">(</span>7<span style="color:#f92672">)</span>
+        drv probe link
+Link detected: yes
+</code></pre></div><h2 id="cpu">CPU</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /proc/cpuinfo | grep --color <span style="color:#e6db74">&#34;model name&#34;</span>
+model name      : Intel<span style="color:#f92672">(</span>R<span style="color:#f92672">)</span> Core<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> i5-5257U CPU @ 2.70GHz
+
+$ lscpu
+Architecture:          x86_64               <span style="color:#75715e"># 架构</span>
+CPU op-mode<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>:        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>:                <span style="color:#ae81ff">1</span>                    <span style="color:#75715e"># CPU 个数</span>
+On-line CPU<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> list:   <span style="color:#ae81ff">0</span>
+Thread<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> per core:    <span style="color:#ae81ff">1</span>                    <span style="color:#75715e"># 每个内核支持的线程数</span>
+Core<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> per socket:    <span style="color:#ae81ff">1</span>                    <span style="color:#75715e"># CPU 内核数</span>
+Socket<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>:             <span style="color:#ae81ff">1</span>
+NUMA node<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>:          <span style="color:#ae81ff">1</span>
+Vendor ID:             GenuineIntel         <span style="color:#75715e"># 厂商</span>
+CPU family:            <span style="color:#ae81ff">6</span>
+Model:                 <span style="color:#ae81ff">61</span>
+Model name:            Intel<span style="color:#f92672">(</span>R<span style="color:#f92672">)</span> Core<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> i5-5257U CPU @ 2.70GHz
+Stepping:              <span style="color:#ae81ff">4</span>
+CPU MHz:               2700.074
+BogoMIPS:              5400.14
+Hypervisor vendor:     VMware
+Virtualization type:   full
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              3072K
+
+# 
+$ dmidecode -t processor
+</code></pre></div><h2 id="mem">Mem</h2>
+<h3 id="内存大小">内存大小</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 内存大小</span>
+$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:           <span style="color:#ae81ff">1980</span>         <span style="color:#ae81ff">962</span>          <span style="color:#ae81ff">72</span>         <span style="color:#ae81ff">323</span>         <span style="color:#ae81ff">945</span>         <span style="color:#ae81ff">363</span>
+Swap:             <span style="color:#ae81ff">0</span>           <span style="color:#ae81ff">0</span>       
+</code></pre></div><h3 id="内存详细信息">内存详细信息</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat /proc/meminfo
+MemTotal:        <span style="color:#ae81ff">2027940</span> kB
+MemFree:           <span style="color:#ae81ff">74072</span> kB
+MemAvailable:     <span style="color:#ae81ff">371928</span> kB
+Buffers:           <span style="color:#ae81ff">95712</span> kB
+Cached:           <span style="color:#ae81ff">828604</span> kB
+SwapCached:            <span style="color:#ae81ff">0</span> kB
+...
+</code></pre></div><h3 id="内存硬件信息">内存硬件信息</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dmidecode -t memory
+</code></pre></div><h2 id="小结">小结</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Description</th>
+<th align="center">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">内核版本</td>
+<td align="center"><code>cat /proc/version</code></td>
+</tr>
+<tr>
+<td align="center">BIOS 信息</td>
+<td align="center"><code>cat /sys/class/dmi/id/bios_*</code></td>
+</tr>
+<tr>
+<td align="center">机器产品和序列化</td>
+<td align="center"><code>cat /sys/class/dmi/id/product_*</code></td>
+</tr>
+<tr>
+<td align="center">硬件信息</td>
+<td align="center"><code>dmidecode</code></td>
+</tr>
+<tr>
+<td align="center">键鼠</td>
+<td align="center"><code>cat /proc/bus/input/devices</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="https://linux.cn/article-4682-1.html"><code>smartctl</code></a> 硬盘监控和分析工具</li>
+<li>
+  <a href="https://www.linuxcool.com/lsblk"><code>lsblk</code></a> 查看系统的磁盘（<code>list block</code>）</li>
+<li>
+  <a href="https://idc.wanyunshuju.com/cym/1289.html"><code>lsscsi</code></a> 列出 <code>SCSI</code> 设备及属性详解</li>
+<li>
+  <a href="https://blog.csdn.net/harbor1981/article/details/42772377">linux 下查看硬盘型号、大小等信息（含Raid）</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Performance/edit/master/HuGo/content/docs/Hardware-Info.md" target="_blank" rel="noopener">
+      <img src="/Performance/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#硬件信息">硬件信息</a>
+      <ul>
+        <li><a href="#disk">Disk</a>
+          <ul>
+            <li><a href="#查看磁盘编号">查看磁盘编号</a></li>
+            <li><a href="#查看是否-ssd">查看是否 SSD</a></li>
+            <li><a href="#磁盘硬件型号">磁盘硬件型号</a></li>
+          </ul>
+        </li>
+        <li><a href="#net">Net</a>
+          <ul>
+            <li><a href="#网卡硬件信息">网卡硬件信息</a></li>
+            <li><a href="#所有网络接口">所有网络接口</a></li>
+            <li><a href="#网络接口的详细信息">网络接口的详细信息</a></li>
+          </ul>
+        </li>
+        <li><a href="#cpu">CPU</a></li>
+        <li><a href="#mem">Mem</a>
+          <ul>
+            <li><a href="#内存大小">内存大小</a></li>
+            <li><a href="#内存详细信息">内存详细信息</a></li>
+            <li><a href="#内存硬件信息">内存硬件信息</a></li>
+          </ul>
+        </li>
+        <li><a href="#小结">小结</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

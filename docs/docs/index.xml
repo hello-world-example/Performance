@@ -9,5 +9,14 @@
 	<atom:link href="https://hello-world-example.github.io/Performance/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Performance/docs/Hardware-Info/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Performance/docs/Hardware-Info/</guid>
+      <description>硬件信息 Disk 查看磁盘编号 $ fdisk -l ... 磁盘 /dev/sda：21.5 GB, 21474836480 字节，41943040 个扇区 Units = 扇区 of 1 * 512 = 512 bytes 扇区大小(逻辑/物理)：512 字节 / 512 字节 I/O 大小(最小/最佳)：512 字节 / 512 字节 查看是否 SSD # 查看是否 SSD $ lsblk -h ... -h, --help 显示此帮助并退出 -V, --version 输出版本信息并退出 可用列(用于 --output)： NAME 设备名 KNAME internal kernel device name MAJ:MIN 主:次 设备号 FSTYPE 文件系统类型 ... # ROTA 0:SSD; 1:HDD $ lsblk -d -p -o NAME,ROTA,TYPE NAME ROTA TYPE /dev/sda 1 disk /dev/sr0 1 rom /dev/loop0 1 loop /dev/loop1 1 loop .</description>
+    </item>
+    
   </channel>
 </rss>
